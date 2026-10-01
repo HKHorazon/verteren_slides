@@ -6,48 +6,53 @@
 <meta name="robots" content="noindex">
 <title>離職風險預測系統 簡介</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap">
 <style>
   :root {
+    --r-background-color: #0f172a;
     --r-main-font: 'Noto Sans TC', sans-serif;
+    --r-main-color: #e2e8f0;
     --r-heading-font: 'Noto Sans TC', sans-serif;
-    --r-heading-color: #1e3a8a;
+    --r-heading-color: #fff;
     --r-heading-text-transform: none;
+    --r-heading-font-weight: 700;
     --r-main-font-size: 30px;
-    --r-link-color: #2563eb;
+    --r-link-color: #60a5fa;
   }
   .reveal h2 { font-size: 1.6em; margin-bottom: .6em; }
   .reveal ul, .reveal ol { display: block; text-align: left; }
   .reveal li { margin: .35em 0; line-height: 1.45; }
   .reveal p { line-height: 1.5; }
-  .muted { color: #64748b; font-size: .75em; }
+  .reveal b { color: #93c5fd; }
+  .muted { color: #94a3b8; font-size: .75em; }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: center; text-align: left; }
-  .card { background: #f1f5f9; border-radius: 10px; padding: .6em .8em; text-align: left; font-size: .75em; line-height: 1.5; }
-  .card b { color: #1e3a8a; display: block; margin-bottom: .2em; font-size: 1.1em; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: .6em .8em; text-align: left; font-size: .75em; line-height: 1.5; color: #cbd5e1; }
+  .card b { display: block; margin-bottom: .2em; font-size: 1.1em; }
   .row { display: grid; gap: .5em; }
   .row.c3 { grid-template-columns: repeat(3, 1fr); }
   .row.c4 { grid-template-columns: repeat(4, 1fr); }
   .flow { display: flex; align-items: stretch; gap: .4em; }
   .flow .card { flex: 1; }
-  .flow .arrow { align-self: center; font-size: 1.2em; color: #94a3b8; }
+  .flow .arrow { align-self: center; font-size: 1.2em; color: #64748b; }
   .quad { display: grid; grid-template-columns: 1fr 1fr; gap: .4em; font-size: .7em; text-align: left; }
   .quad div { border-radius: 10px; padding: .6em .8em; }
-  .excellent { background: #d1fae5; color: #047857; }
-  .fair { background: #fef3c7; color: #b45309; }
-  .poor { background: #fee2e2; color: #b91c1c; }
-  .info { background: #f1f5f9; color: #64748b; }
+  .quad b { color: inherit; }
+  .excellent { background: rgba(16, 185, 129, .18); color: #6ee7b7; }
+  .fair { background: rgba(245, 158, 11, .18); color: #fcd34d; }
+  .poor { background: rgba(239, 68, 68, .2); color: #fca5a5; }
+  .info { background: rgba(148, 163, 184, .15); color: #cbd5e1; }
+  .reveal .slides { cursor: pointer; }
 </style>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
 
-  <section data-background-color="#0f172a">
+  <section>
     <h1 style="font-size:2.2em">醫事人員離職風險預測系統</h1>
     <h3 style="font-weight:400">系統目標與功能簡介</h3>
-    <p class="muted" style="color:#94a3b8">臺中榮民總醫院</p>
-    <p class="muted" style="color:#64748b;margin-top:2em">← → 換頁　Esc 看全部</p>
+    <p class="muted">臺中榮民總醫院</p>
   </section>
 
   <section>
@@ -63,7 +68,7 @@
   <section>
     <h2>怎麼做到</h2>
     <div class="flow" style="font-size:1.1em">
-      <div class="card"><b>① 問卷</b>醫事人員透過連結匿名作答，免登入</div>
+      <div class="card"><b>① 問卷</b>目前以 SurveyCake 收集，匯入本系統<br><span class="muted" style="font-size:.85em">※ 之後改由本系統直接收集：醫事人員透過連結匿名作答、免登入</span></div>
       <div class="arrow">→</div>
       <div class="card"><b>② 找缺口</b>比對重視度與滿意度，排出優先改善項目</div>
       <div class="arrow">→</div>
@@ -153,8 +158,8 @@
     </div>
   </section>
 
-  <section data-background-color="#0f172a">
-    <h2 style="color:#fff">完整操作說明</h2>
+  <section>
+    <h2>完整操作說明</h2>
     <p style="font-size:.85em">每一頁的操作步驟、怎麼判讀、常見問題，<br>都在系統內建的「使用說明書」。</p>
     <p style="font-size:.85em;color:#93c5fd">系統網址後面加上 <code>/#/docs</code>（免登入）</p>
   </section>
@@ -164,6 +169,10 @@
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
   Reveal.initialize({ hash: true, slideNumber: 'c/t', width: 1280, height: 720 })
+  // 滑鼠：左鍵下一頁、右鍵上一頁（右下角箭頭與進度條照原本行為）
+  const skip = e => e.target.closest('.controls, .progress, a')
+  document.addEventListener('click', e => { if (!skip(e)) Reveal.next() })
+  document.addEventListener('contextmenu', e => { if (!skip(e)) { e.preventDefault(); Reveal.prev() } })
 </script>
 </body>
 </html>

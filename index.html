@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>離職風險預測系統 簡介</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap">
+<style>
+  :root {
+    --r-main-font: 'Noto Sans TC', sans-serif;
+    --r-heading-font: 'Noto Sans TC', sans-serif;
+    --r-heading-color: #1e3a8a;
+    --r-heading-text-transform: none;
+    --r-main-font-size: 30px;
+    --r-link-color: #2563eb;
+  }
+  .reveal h2 { font-size: 1.6em; margin-bottom: .6em; }
+  .reveal ul, .reveal ol { display: block; text-align: left; }
+  .reveal li { margin: .35em 0; line-height: 1.45; }
+  .reveal p { line-height: 1.5; }
+  .muted { color: #64748b; font-size: .75em; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: center; text-align: left; }
+  .card { background: #f1f5f9; border-radius: 10px; padding: .6em .8em; text-align: left; font-size: .75em; line-height: 1.5; }
+  .card b { color: #1e3a8a; display: block; margin-bottom: .2em; font-size: 1.1em; }
+  .row { display: grid; gap: .5em; }
+  .row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .row.c4 { grid-template-columns: repeat(4, 1fr); }
+  .flow { display: flex; align-items: stretch; gap: .4em; }
+  .flow .card { flex: 1; }
+  .flow .arrow { align-self: center; font-size: 1.2em; color: #94a3b8; }
+  .quad { display: grid; grid-template-columns: 1fr 1fr; gap: .4em; font-size: .7em; text-align: left; }
+  .quad div { border-radius: 10px; padding: .6em .8em; }
+  .excellent { background: #d1fae5; color: #047857; }
+  .fair { background: #fef3c7; color: #b45309; }
+  .poor { background: #fee2e2; color: #b91c1c; }
+  .info { background: #f1f5f9; color: #64748b; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <section data-background-color="#0f172a">
+    <h1 style="font-size:2.2em">醫事人員離職風險預測系統</h1>
+    <h3 style="font-weight:400">系統目標與功能簡介</h3>
+    <p class="muted" style="color:#94a3b8">臺中榮民總醫院</p>
+    <p class="muted" style="color:#64748b;margin-top:2em">← → 換頁　Esc 看全部</p>
+  </section>
+
+  <section>
+    <h2>系統目標</h2>
+    <p style="font-size:.9em">在人員真正離開之前，<b>及早辨識、及早介入</b></p>
+    <div class="row c3" style="margin-top:.8em;font-size:1.1em">
+      <div class="card"><b>聽見</b>有系統地蒐集醫事人員對各項留任因素的看法</div>
+      <div class="card"><b>聚焦</b>找出「大家很在意、醫院卻做得不夠好」的地方，決定改善的先後順序</div>
+      <div class="card"><b>預警</b>估計離職風險，找出高風險族群和背後的主要原因</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>怎麼做到</h2>
+    <div class="flow" style="font-size:1.1em">
+      <div class="card"><b>① 問卷</b>醫事人員透過連結匿名作答，免登入</div>
+      <div class="arrow">→</div>
+      <div class="card"><b>② 找缺口</b>比對重視度與滿意度，排出優先改善項目</div>
+      <div class="arrow">→</div>
+      <div class="card"><b>③ 估風險</b>統計模型算出離職機率與主要因子</div>
+      <div class="arrow">→</div>
+      <div class="card"><b>④ 儀表板</b>重點集中在一頁，開會可直接投影</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>問卷問什麼</h2>
+    <div class="row c4" style="font-size:.85em">
+      <div class="card"><b>1</b>工作內在適配</div>
+      <div class="card"><b>2</b>外在工作條件</div>
+      <div class="card"><b>3</b>工作壓力與負荷</div>
+      <div class="card"><b>4</b>主管支持</div>
+      <div class="card"><b>5</b>同事關係與團隊合作</div>
+      <div class="card"><b>6</b>績效考核</div>
+      <div class="card"><b>7</b>訓練與職涯發展機會</div>
+      <div class="card"><b>8</b>薪資與福利</div>
+    </div>
+    <ul style="font-size:.8em;margin-top:.8em">
+      <li>八大留任構面的每一題都問兩次：<b>重視度 I</b>（對我多重要）和<b>滿意度 P</b>（醫院做得如何）</li>
+      <li>另有<b>留任意願</b> 5 題，以及<b>個人資料</b> 9 項（職類、年資、單位…），用來分組比較</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>聚焦：該先改善什麼</h2>
+    <div class="cols" style="grid-template-columns:1.1fr .9fr">
+      <div style="font-size:.8em">
+        <p><b>I−P 缺口 ＝ 重視度 − 滿意度</b></p>
+        <ul>
+          <li>正值：很在意，但做得不夠好</li>
+          <li>缺口越大，越該優先處理</li>
+          <li>每個構面、每一題都算得出缺口</li>
+        </ul>
+      </div>
+      <div>
+        <div class="quad">
+          <div class="fair"><b>過度努力</b><br>低重視・高滿意<br>可考慮移轉資源</div>
+          <div class="excellent"><b>繼續保持</b><br>高重視・高滿意<br>維持現狀</div>
+          <div class="info"><b>低優先改善</b><br>低重視・低滿意<br>順位最後</div>
+          <div class="poor"><b>優先改善</b><br>高重視・低滿意<br>應立即投入</div>
+        </div>
+        <p class="muted" style="text-align:center;margin-top:.3em">橫軸：重視度 →　縱軸：滿意度 ↑</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>預警：誰可能離開、為什麼</h2>
+    <ul style="font-size:.85em">
+      <li>留任意願平均<b>低於 3 分</b>視為高風險（門檻可在系統內調整）</li>
+      <li>以羅吉斯迴歸算出<b>每個人落入高風險的機率</b>，並看出哪些構面會推高風險</li>
+      <li>依單位、職類、年資等分組，找出<b>留任意願偏低的族群</b>和他們最弱的構面</li>
+      <li>模型準不準有 AUC 指標可看：0.7 以上可接受、0.8 以上良好</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>院方拿到什麼</h2>
+    <p style="font-size:.8em">一頁<b>決策儀表板</b>，不用捲動就看得完</p>
+    <div class="row c3" style="font-size:1.05em">
+      <div class="card"><b>現況總覽</b>有效樣本、留任意願平均、高風險占比、最大缺口、模型鑑別力</div>
+      <div class="card"><b>優先改善</b>缺口最大的構面與題目，可切換以滿意度、重視度或缺口排序</div>
+      <div class="card"><b>高風險族群</b>高風險人數與占比，以及他們的主要風險因子</div>
+    </div>
+    <p class="muted" style="margin-top:1em">需要深入時，從卡片直接進對應的分析頁；各頁都可匯出 Excel</p>
+  </section>
+
+  <section>
+    <h2>誰會用</h2>
+    <div class="cols">
+      <div class="card" style="font-size:.85em">
+        <b>問卷填答者</b>
+        收到院方的問卷連結就能填，不用帳號。<br>
+        作答編號由系統配發，不綁個人身分；<br>
+        領小禮物留的資料另外存放，對不回作答。
+      </div>
+      <div class="card" style="font-size:.85em">
+        <b>後台使用者</b>
+        管理者、主管、研究人員登入使用。<br>
+        能看哪些頁面，由最高管理者依「身分組」授權；<br>
+        所有操作都留有紀錄。
+      </div>
+    </div>
+  </section>
+
+  <section data-background-color="#0f172a">
+    <h2 style="color:#fff">完整操作說明</h2>
+    <p style="font-size:.85em">每一頁的操作步驟、怎麼判讀、常見問題，<br>都在系統內建的「使用說明書」。</p>
+    <p style="font-size:.85em;color:#93c5fd">系統網址後面加上 <code>/#/docs</code>（免登入）</p>
+  </section>
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({ hash: true, slideNumber: 'c/t', width: 1280, height: 720 })
+</script>
+</body>
+</html>

@@ -40,14 +40,7 @@
   .quad div { border-radius: 10px; padding: .7em 1em; line-height: 1.5; }
   .quad b { color: inherit; display: block; font-size: 1.15em; }
   .quad .hl { outline: 2px solid #f87171; }
-  .dash { background: #0b1222; border: 1px solid #334155; border-radius: 12px; padding: .7em; font-size: .62em; text-align: left; }
-  .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5em; margin-bottom: .5em; }
-  .kpis div { background: #1e293b; border-radius: 8px; padding: .5em .8em; color: #94a3b8; }
-  .kpis div::after { content: ''; display: block; height: 1.5em; width: 55%; margin-top: .3em; border-radius: 4px; background: #334155; }
-  .panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5em; }
-  .panels div { background: #1e293b; border-radius: 8px; padding: .7em .8em; }
-  .panels b { display: block; margin-bottom: .6em; }
-  .panels i { display: block; height: .8em; border-radius: 4px; background: #2b4a7a; margin: .5em 0; }
+  .reveal img.shot { max-height: 520px; margin: 0 !important; border: 1px solid #334155; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, .4); }
   .excellent { background: rgba(16, 185, 129, .18); color: #6ee7b7; }
   .fair { background: rgba(245, 158, 11, .18); color: #fcd34d; }
   .poor { background: rgba(239, 68, 68, .2); color: #fca5a5; }
@@ -78,7 +71,7 @@
   <section>
     <h2>怎麼做到</h2>
     <div class="flow" style="font-size:1.1em">
-      <div class="card"><b>① 問卷</b>目前以 SurveyCake 收集，匯入本系統<br><span class="muted" style="font-size:.85em">※ 之後改由本系統直接收集：醫事人員透過連結匿名作答、免登入</span></div>
+      <div class="card"><b>① 問卷</b>原先以 SurveyCake 收集，匯入本系統<br><span class="muted" style="font-size:.85em">※ 目前將改由本系統直接收集：醫事人員透過連結匿名作答、免登入</span></div>
       <div class="arrow">→</div>
       <div class="card"><b>② 找缺口</b>比對重視度與滿意度，排出優先改善項目</div>
       <div class="arrow">→</div>
@@ -130,14 +123,7 @@
 
   <section>
     <h2>院方拿到什麼：一頁決策儀表板</h2>
-    <div class="dash">
-      <div class="kpis"><div>有效樣本</div><div>留任意願平均</div><div>最大缺口</div><div>高風險占比</div><div>模型鑑別力</div></div>
-      <div class="panels">
-        <div><b>優先改善的構面與題目</b><i style="width:92%"></i><i style="width:74%"></i><i style="width:60%"></i><i style="width:45%"></i></div>
-        <div><b>留任意願偏低的族群</b><i style="width:80%"></i><i style="width:68%"></i><i style="width:57%"></i><i style="width:50%"></i></div>
-        <div><b>高風險族群的主要因子</b><i style="width:88%"></i><i style="width:63%"></i><i style="width:52%"></i><i style="width:40%"></i></div>
-      </div>
-    </div>
+    <img class="shot" src="img/dashboard.png" alt="決策儀表板">
     <p class="muted" style="margin-top:.8em">開會直接投影；點卡片進入對應分析頁深入看，各頁都可匯出 Excel</p>
   </section>
 

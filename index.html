@@ -26,6 +26,7 @@
   .reveal p { line-height: 1.5; }
   .reveal b { color: #93c5fd; }
   .muted { color: #94a3b8; font-size: .75em; }
+  .reveal p.lbl { text-align: left; font-size: .7em; margin: .9em 0 .35em; color: #94a3b8; }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: center; text-align: left; }
   .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: .6em .8em; text-align: left; font-size: .75em; line-height: 1.5; color: #cbd5e1; }
   .card b { display: block; margin-bottom: .2em; font-size: 1.1em; }
@@ -35,9 +36,18 @@
   .flow { display: flex; align-items: stretch; gap: .4em; }
   .flow .card { flex: 1; }
   .flow .arrow { align-self: center; font-size: 1.2em; color: #64748b; }
-  .quad { display: grid; grid-template-columns: 1fr 1fr; gap: .4em; font-size: .7em; text-align: left; }
-  .quad div { border-radius: 10px; padding: .6em .8em; }
-  .quad b { color: inherit; }
+  .quad { display: grid; grid-template-columns: 1fr 1fr; gap: .5em; width: 760px; margin: .4em auto 0; font-size: .75em; text-align: left; }
+  .quad div { border-radius: 10px; padding: .7em 1em; line-height: 1.5; }
+  .quad b { color: inherit; display: block; font-size: 1.15em; }
+  .quad .hl { outline: 2px solid #f87171; }
+  .dash { background: #0b1222; border: 1px solid #334155; border-radius: 12px; padding: .7em; font-size: .62em; text-align: left; }
+  .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5em; margin-bottom: .5em; }
+  .kpis div { background: #1e293b; border-radius: 8px; padding: .5em .8em; color: #94a3b8; }
+  .kpis div::after { content: ''; display: block; height: 1.5em; width: 55%; margin-top: .3em; border-radius: 4px; background: #334155; }
+  .panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5em; }
+  .panels div { background: #1e293b; border-radius: 8px; padding: .7em .8em; }
+  .panels b { display: block; margin-bottom: .6em; }
+  .panels i { display: block; height: .8em; border-radius: 4px; background: #2b4a7a; margin: .5em 0; }
   .excellent { background: rgba(16, 185, 129, .18); color: #6ee7b7; }
   .fair { background: rgba(245, 158, 11, .18); color: #fcd34d; }
   .poor { background: rgba(239, 68, 68, .2); color: #fca5a5; }
@@ -80,7 +90,10 @@
 
   <section>
     <h2>問卷問什麼</h2>
-    <div class="row c4" style="font-size:.85em">
+    <p class="lbl"><b>個人資料 9 項</b>　用來分組比較</p>
+    <div class="card" style="font-size:.6em">生理性別、年齡、工作院所層級、工作職類、執業總年資、現職服務年資、平均月薪、婚姻狀況、需照顧子女</div>
+    <p class="lbl"><b>八大留任構面</b>　詢問 重視度 I（對我多重要）和滿意度 P（醫院做得如何）</p>
+    <div class="row c4" style="font-size:.8em">
       <div class="card"><b>1</b>工作內在適配</div>
       <div class="card"><b>2</b>外在工作條件</div>
       <div class="card"><b>3</b>工作壓力與負荷</div>
@@ -90,72 +103,52 @@
       <div class="card"><b>7</b>訓練與職涯發展機會</div>
       <div class="card"><b>8</b>薪資與福利</div>
     </div>
-    <ul style="font-size:.8em;margin-top:.8em">
-      <li>八大留任構面的每一題都問兩次：<b>重視度 I</b>（對我多重要）和<b>滿意度 P</b>（醫院做得如何）</li>
-      <li>另有<b>留任意願</b> 5 題，以及<b>個人資料</b> 9 項（職類、年資、單位…），用來分組比較</li>
-    </ul>
+    <p class="lbl"><b>留任意願 5 題</b>　各項分析要解釋的對象</p>
   </section>
 
   <section>
-    <h2>聚焦：該先改善什麼</h2>
-    <div class="cols" style="grid-template-columns:1.1fr .9fr">
-      <div style="font-size:.8em">
-        <p><b>I−P 缺口 ＝ 重視度 − 滿意度</b></p>
-        <ul>
-          <li>正值：很在意，但做得不夠好</li>
-          <li>缺口越大，越該優先處理</li>
-          <li>每個構面、每一題都算得出缺口</li>
-        </ul>
-      </div>
-      <div>
-        <div class="quad">
-          <div class="fair"><b>過度努力</b><br>低重視・高滿意<br>可考慮移轉資源</div>
-          <div class="excellent"><b>繼續保持</b><br>高重視・高滿意<br>維持現狀</div>
-          <div class="info"><b>低優先改善</b><br>低重視・低滿意<br>順位最後</div>
-          <div class="poor"><b>優先改善</b><br>高重視・低滿意<br>應立即投入</div>
-        </div>
-        <p class="muted" style="text-align:center;margin-top:.3em">橫軸：重視度 →　縱軸：滿意度 ↑</p>
+    <h2>聚焦：哪些事該先改善？</h2>
+    <p style="font-size:.85em">員工<b>很在意</b>、醫院卻<b>做得不夠</b>的，就是優先改善的項目</p>
+    <div class="quad">
+      <div class="fair"><b>過度努力</b>不太在意，但很滿意<br>→ 可考慮移轉資源</div>
+      <div class="excellent"><b>繼續保持</b>很在意，也很滿意<br>→ 維持現狀</div>
+      <div class="info"><b>低優先</b>不太在意，也不滿意<br>→ 順位最後</div>
+      <div class="poor hl"><b>優先改善</b>很在意，但不滿意<br>→ 應立即投入</div>
+    </div>
+    <p class="muted" style="margin-top:.8em">八大構面與每一題都會落在其中一格；在意與滿意差距越大，越該先處理</p>
+  </section>
+
+  <section>
+    <h2>預警：哪些族群可能流失？為什麼？</h2>
+    <div class="row c3" style="font-size:1.05em;margin-top:.6em">
+      <div class="card"><b>有多少人想走？</b>算出留任意願偏低的人數與占比，掌握整體規模</div>
+      <div class="card"><b>哪些族群最危險？</b>依職類、年資、年齡等分組比較，找出留任意願偏低的族群</div>
+      <div class="card"><b>是什麼讓他們想走？</b>找出推高離職風險的主要構面，改善才能對症下藥</div>
+    </div>
+    <p class="muted" style="margin-top:1em">問卷匿名，系統只看族群、不辨識個人</p>
+  </section>
+
+  <section>
+    <h2>院方拿到什麼：一頁決策儀表板</h2>
+    <div class="dash">
+      <div class="kpis"><div>有效樣本</div><div>留任意願平均</div><div>最大缺口</div><div>高風險占比</div><div>模型鑑別力</div></div>
+      <div class="panels">
+        <div><b>優先改善的構面與題目</b><i style="width:92%"></i><i style="width:74%"></i><i style="width:60%"></i><i style="width:45%"></i></div>
+        <div><b>留任意願偏低的族群</b><i style="width:80%"></i><i style="width:68%"></i><i style="width:57%"></i><i style="width:50%"></i></div>
+        <div><b>高風險族群的主要因子</b><i style="width:88%"></i><i style="width:63%"></i><i style="width:52%"></i><i style="width:40%"></i></div>
       </div>
     </div>
+    <p class="muted" style="margin-top:.8em">開會直接投影；點卡片進入對應分析頁深入看，各頁都可匯出 Excel</p>
   </section>
 
   <section>
-    <h2>預警：誰可能離開、為什麼</h2>
-    <ul style="font-size:.85em">
-      <li>留任意願平均<b>低於 3 分</b>視為高風險（門檻可在系統內調整）</li>
-      <li>以羅吉斯迴歸算出<b>每個人落入高風險的機率</b>，並看出哪些構面會推高風險</li>
-      <li>依單位、職類、年資等分組，找出<b>留任意願偏低的族群</b>和他們最弱的構面</li>
-      <li>模型準不準有 AUC 指標可看：0.7 以上可接受、0.8 以上良好</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>院方拿到什麼</h2>
-    <p style="font-size:.8em">一頁<b>決策儀表板</b>，不用捲動就看得完</p>
+    <h2>此系統誰會用</h2>
     <div class="row c3" style="font-size:1.05em">
-      <div class="card"><b>現況總覽</b>有效樣本、留任意願平均、高風險占比、最大缺口、模型鑑別力</div>
-      <div class="card"><b>優先改善</b>缺口最大的構面與題目，可切換以滿意度、重視度或缺口排序</div>
-      <div class="card"><b>高風險族群</b>高風險人數與占比，以及他們的主要風險因子</div>
+      <div class="card"><b>問卷填答者</b>醫事人員。收到問卷連結就能填，不用帳號。<br>作答編號由系統配發，不綁個人身分；領小禮物留的資料另外存放，對不回作答。</div>
+      <div class="card"><b>閱覽資訊人員</b>院方主管、決策者。<br>登入後看決策儀表板與分析結果，掌握現況、決定改善方向。</div>
+      <div class="card"><b>管理／研究人員</b>管理問卷、匯入資料、維護帳號；<br>研究人員可做信效度、相關、回歸等深入分析，並匯出 Excel。</div>
     </div>
-    <p class="muted" style="margin-top:1em">需要深入時，從卡片直接進對應的分析頁；各頁都可匯出 Excel</p>
-  </section>
-
-  <section>
-    <h2>誰會用</h2>
-    <div class="cols">
-      <div class="card" style="font-size:.85em">
-        <b>問卷填答者</b>
-        收到院方的問卷連結就能填，不用帳號。<br>
-        作答編號由系統配發，不綁個人身分；<br>
-        領小禮物留的資料另外存放，對不回作答。
-      </div>
-      <div class="card" style="font-size:.85em">
-        <b>後台使用者</b>
-        管理者、主管、研究人員登入使用。<br>
-        能看哪些頁面，由最高管理者依「身分組」授權；<br>
-        所有操作都留有紀錄。
-      </div>
-    </div>
+    <p class="muted" style="margin-top:1em">※ 各類人員能看哪些頁面，可由最高管理者依「身分組」自由調整；所有後台操作都留有紀錄</p>
   </section>
 
   <section>
